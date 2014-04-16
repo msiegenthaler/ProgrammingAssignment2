@@ -9,14 +9,16 @@
 #' To change the matrix use:    x$set(myNewMatrix)
 #' To get the (cached) inverse: cacheSolve(x)
 makeCacheMatrix <- function(x = matrix()) {
-    cachedInverse <- NULL
     set <- function(newX) {
         x <<- newX
         cached <<- NULL
     }
     get <- function() x
+
+    cachedInverse <- NULL
     setInverse <- function(i) cachedInverse <<- i
     getInverse <- function() cachedInverse
+
     list(set = set, get = get,
          setInverse = setInverse, getInverse = getInverse)
 }
